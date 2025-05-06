@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Nueva paleta vibrante moderna */
+    --primary-50: hsl(198, 90%, 96%);
+    --primary-100: hsl(198, 90%, 88%);
+    --primary-500: hsl(198, 90%, 60%);
+    --primary-600: hsl(198, 90%, 50%);
+    --primary-700: hsl(198, 90%, 40%);
+    
+    --secondary-50: hsl(285, 90%, 96%);
+    --secondary-100: hsl(285, 90%, 88%);
+    --secondary-500: hsl(285, 90%, 60%);
+    --secondary-600: hsl(285, 90%, 50%);
+    --secondary-700: hsl(285, 90%, 40%);
+    
+    --accent-500: hsl(158, 90%, 50%);
+    --accent-600: hsl(158, 90%, 40%);
+    
+    --danger-500: hsl(350, 90%, 60%);
+    --success-500: hsl(158, 90%, 50%);
+    
+    --soft-pink: hsl(330, 100%, 95%);
+  }
+
+  body {
+    @apply font-sans text-gray-800 bg-gradient-to-br from-[var(--soft-pink)] to-[var(--primary-100)] min-h-screen;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .form-input {
+    @apply w-full px-4 py-2 rounded-lg border-2 border-gray-200/80 bg-white/90 backdrop-blur-sm 
+           focus:ring-2 focus:ring-[var(--accent-500)] focus:border-[var(--primary-500)] 
+           placeholder-gray-400/80 transition-all duration-300 ease-in-out 
+           hover:border-[var(--primary-500)/40] focus:shadow-lg focus:shadow-[var(--primary-100)];
+  }
+  
+  .form-label {
+    @apply block text-sm font-semibold text-[var(--primary-700)] mb-1 tracking-wide;
+  }
+
+  .error-message {
+    @apply text-[var(--danger-500)] text-sm mt-1 animate-fade-in font-medium;
+  }
+
+  .card {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8 transition-all duration-300 
+           hover:shadow-2xl border-2 border-white/40 hover:border-[var(--primary-100)/40]
+           hover:-translate-y-1;
+  }
+
+  .link {
+    @apply text-[var(--secondary-600)] hover:text-[var(--secondary-700)] underline 
+           underline-offset-4 decoration-2 decoration-[var(--accent-500)] transition 
+           duration-300 hover:decoration-[var(--accent-600)];
+  }
+
+  .btn-primary {
+    @apply px-6 py-2.5 bg-gradient-to-r from-[var(--primary-500)] to-[var(--secondary-500)] 
+           text-white font-semibold rounded-lg shadow-md hover:shadow-lg 
+           hover:from-[var(--primary-600)] hover:to-[var(--secondary-600)] 
+           transform transition-all duration-300 ease-out hover:scale-[1.02];
+  }
+
+  .animated-border {
+    @apply relative before:absolute before:inset-0 before:bg-[conic-gradient(var(--primary-500)_20deg,transparent_120deg)] 
+           before:animate-border-spin before:rounded-xl;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
