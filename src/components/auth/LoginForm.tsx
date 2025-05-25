@@ -10,9 +10,7 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ 
-  onSwitchToRegister, 
-  onSwitchToRecovery 
-}) => {
+  onSwitchToRegister}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showRecoveryOptions, setShowRecoveryOptions] = useState(false);
   

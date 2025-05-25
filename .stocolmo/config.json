@@ -1,3 +1,5 @@
 {
-  "template": "bolt-vite-react-ts"
+  "template": "stocolmo",
+  "name": "Stocolmo",
+  "description": "A simple and elegant theme for Stocolmo."
 }
